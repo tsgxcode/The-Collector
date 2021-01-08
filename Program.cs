@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.IO;
+using The_Collector;
+using System.Text.Json.Serialization;
 
 namespace The_Collector
 {
@@ -13,6 +19,8 @@ namespace The_Collector
         */
 
         static void Main()
+        
+      
         {
             //The Colletor
             Console.Write("Artist name: ");
@@ -24,18 +32,19 @@ namespace The_Collector
             Console.Write("Number of releases: ");
             string Releases = Console.ReadLine();
 
-            string v2 = $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}";
-            File.AppendAllText(@"\Users\TSG\source\repos\The Collector\Data.txt",
-            v2);
+
+            File.AppendAllText(
+            @"\Users\TSG\source\repos\The Collector\Data.txt",
+            $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
         }
 
-        public static void OutPutLog(){
-          /* serialzing data: Read from a file and output results to file,in this case a basic text file*/ 
-          string currentDirectory = Directory.GetCurrentDirectory();
-          DirectoryInfo directory= new DirectoryInfo(currentDirectory);
-          var fileName = Path.Combine(directory.FullName, "Data.txt");
-          var fileContents = ReadFile(fileName);
-          string[] fileLines = fileContents.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+        public static void Artist(){
+            /* serialzing data: Read from a file and output results to file,in this case a basic text file*/
+            string currentDirectory = Directory.GetCurrentDirectory();
+            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
+            var fileName = Path.Combine(directory.FullName, "Data.txt");
+            var fileContents = ReadFile(fileName);
+            string[] fileLines = fileContents.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
 
           foreach (var line in fileLines)
           {
@@ -51,8 +60,7 @@ namespace The_Collector
           }
         }
 
-      }
-
-
+      
 
     }
+}
