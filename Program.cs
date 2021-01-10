@@ -32,19 +32,19 @@ namespace The_Collector
             Console.Write("Number of releases: ");
             string Releases = Console.ReadLine();
 
-
-            File.AppendAllText(
-            @"\Users\TSG\source\repos\The Collector\Data.txt",
-            $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
+            
+            //File.AppendAllText(
+                //@"\Users\TSG\source\repos\The Collector\Data.txt",
+                //$"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
         }
 
         public static void Artist(){
-            /* serialzing data: Read from a file and output results to file,in this case a basic text file*/
-            string currentDirectory = Directory.GetCurrentDirectory();
-            DirectoryInfo directory = new DirectoryInfo(currentDirectory);
-            var fileName = Path.Combine(directory.FullName, "Data.txt");
-            var fileContents = ReadFile(fileName);
-            string[] fileLines = fileContents.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+          /* serialzing data: Read from a file and output results to file,in this case a basic text file*/ 
+          string currentDirectory = Directory.GetCurrentDirectory();
+          DirectoryInfo directory= new DirectoryInfo(currentDirectory);
+          var fileName = Path.Combine(directory.FullName, "Data.txt");
+          var fileContents = ReadFile(fileName);
+          string[] fileLines = fileContents.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
 
           foreach (var line in fileLines)
           {
@@ -59,8 +59,6 @@ namespace The_Collector
              return reader.ReadToEnd();
           }
         }
-
-      
 
     }
 }
