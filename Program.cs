@@ -33,9 +33,9 @@ namespace The_Collector
             string Releases = Console.ReadLine();
 
             
-            //File.AppendAllText(
-                //@"\Users\TSG\source\repos\The Collector\Data.txt",
-                //$"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
+            File.AppendAllText(
+              @"\Users\TSG\source\repos\The Collector\Data.txt",
+                $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
         }
 
         public static void Artist(){
