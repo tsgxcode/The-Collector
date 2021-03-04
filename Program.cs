@@ -20,7 +20,24 @@ namespace The_Collector
 
         static void Main()
         
-      
+        /*do
+        {
+             
+               Console.WriteLine("The Collector");
+               
+
+               LogArtist();
+               Console.WriteLine("Add another Artist? Yes or No");
+               if(Console.ReadLine().ToUpper() == "YES");
+               {
+                 OutPutLog();
+               }
+               Console.WriteLine("Add another Artist? Yes or No");
+             }
+             while (Console.ReadLine().ToUpper() == "YES");
+          }
+          } */
+
         {
             //The Colletor
             Console.Write("Artist name: ");
@@ -38,27 +55,7 @@ namespace The_Collector
                 $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
         }
 
-        public static void Artist(){
-          /* serialzing data: Read from a file and output results to file,in this case a basic text file*/ 
-          string currentDirectory = Directory.GetCurrentDirectory();
-          DirectoryInfo directory= new DirectoryInfo(currentDirectory);
-          var fileName = Path.Combine(directory.FullName, "Data.txt");
-          var fileContents = ReadFile(fileName);
-          string[] fileLines = fileContents.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
-
-          foreach (var line in fileLines)
-          {
-            Console.WriteLine(line);
-
-          }
-        }
-
-        public static string ReadFile(string fileName){
-
-          using (var reader = new StreamReader(fileName)){
-             return reader.ReadToEnd();
-          }
-        }
+      
 
     }
 }
