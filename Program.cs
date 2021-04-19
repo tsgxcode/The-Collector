@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using The_Collector;
-using System.Text.Json.Serialization;
 
 namespace The_Collector
 {
@@ -20,15 +19,18 @@ namespace The_Collector
 
         static void Main()
         
-        /*do
+{
+        //Main loop
+        do
+        
         {
              
                Console.WriteLine("The Collector");
                
 
-               LogArtist();
+               OutPutLog();
                Console.WriteLine("Add another Artist? Yes or No");
-               if(Console.ReadLine().ToUpper() == "YES");
+               if(Console.ReadLine().ToUpper() == "YES")
                {
                  OutPutLog();
                }
@@ -36,10 +38,12 @@ namespace The_Collector
              }
              while (Console.ReadLine().ToUpper() == "YES");
           }
-          } */
+            
 
-        {
+        
             //The Colletor
+            public static void OutPutLog()
+            {
             Console.Write("Artist name: ");
             string ArtistName = Console.ReadLine();
             Console.Write("Artist Location: ");
@@ -49,13 +53,11 @@ namespace The_Collector
             Console.Write("Number of releases: ");
             string Releases = Console.ReadLine();
 
-            
+            //Writes to a text file
             File.AppendAllText(
               @"\Users\TSG\source\repos\The Collector\Data.txt",
                 $"{(ArtistName + "." + ArtistLocation + "." + YearsAcitve + "." + Releases + ".")}{Environment.NewLine}");
         }
-
-      
-
-    }
+            
+        }
 }
